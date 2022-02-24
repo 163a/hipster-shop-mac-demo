@@ -1,0 +1,39 @@
+{
+  "name": "{{ .name }}",
+  "rules": [
+    {
+      "type": "SERVICE",
+      "enabled": {{ .enabled }},
+      "valueFormat": "{Service:DatabaseVendor}",
+      "propagationTypes": [
+        "SERVICE_TO_PROCESS_GROUP_LIKE",
+        "SERVICE_TO_HOST_LIKE"
+      ],
+      "conditions": [
+        {
+          "key": {
+            "attribute": "SERVICE_TYPE"
+          },
+          "comparisonInfo": {
+            "type": "SERVICE_TYPE",
+            "operator": "EQUALS",
+            "value": "DATABASE_SERVICE",
+            "negate": false
+          }
+        },
+        {
+          "key": {
+            "attribute": "SERVICE_DETECTED_NAME"
+          },
+          "comparisonInfo": {
+            "type": "STRING",
+            "operator": "{{ .match_operator }}",
+            "value": null,
+            "negate": false,
+            "caseSensitive": null
+          }
+        }
+      ]
+    }
+  ]
+}

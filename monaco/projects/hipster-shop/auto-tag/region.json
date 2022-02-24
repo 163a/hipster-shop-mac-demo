@@ -1,0 +1,26 @@
+{
+  "name": "{{ .name }}",
+  "rules": [{
+      "type": "HOST",
+      "enabled": "{{ .enabled }}",
+      "valueFormat": "{Host:Kubernetes:topology.kubernetes.io//region}",
+      "propagationTypes": [],
+      "conditions": [
+        {
+          "key": {
+            "attribute": "HOST_KUBERNETES_LABELS",
+            "dynamicKey": "topology.kubernetes.io/region",
+            "type": "STRING"
+          },
+          "comparisonInfo": {
+            "type": "STRING",
+            "operator": "{{ .match_operator }}",
+            "value": null,
+            "negate": false,
+            "caseSensitive": null
+          }
+        }
+      ]
+    }
+  ]
+}

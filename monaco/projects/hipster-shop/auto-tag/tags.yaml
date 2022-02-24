@@ -1,0 +1,42 @@
+config:
+  - base_pod_tag: "base_pod.json"
+  - database_tag: "database.json"
+  - hipster_shop_tag: "hipster_shop.json"
+  - kubernetes_tag: "kubernetes.json"
+  - namespace_tag: "namespace.json"
+  - region_tag: "region.json"
+  - zone_tag: "zone.json"
+  
+base_pod_tag:
+  - name: "Base Pod"
+  - enabled: "true"
+  - match_operator: "EXISTS"
+
+database_tag:
+  - name: "Database"
+  - enabled: "true"
+  - match_operator: "EXISTS"
+
+hipster_shop_tag:
+  - name: "Hipster Shop"
+  - enabled: "true"
+
+kubernetes_tag:
+  - name: "Kubernetes"
+  - enabled: "true"
+  - match_operator: "EXISTS"
+
+namespace_tag:
+  - name: "Namespace"
+  - enabled: "true"
+  - match_operator: "EXISTS"
+
+region_tag:
+  - name: "Region"
+  - enabled: "true"
+  - match_operator: "EXISTS"
+
+zone_tag:
+  - name: "Zone"
+  - enabled: "true"
+  - match_operator: "EXISTS"

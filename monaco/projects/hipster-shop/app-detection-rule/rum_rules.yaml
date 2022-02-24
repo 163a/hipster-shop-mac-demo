@@ -1,0 +1,64 @@
+config:
+  - hipster_rule_1: "common_detection_rules.json"
+  - hipster_rule_2: "common_detection_rules.json"
+  - hipster_rule_3: "common_detection_rules.json"
+  - hipster_rule_4: "common_detection_rules.json"
+  - hipster_rule_5: "common_detection_rules.json"
+  - hipster_rule_6: "common_detection_rules.json"
+
+# Temporarily skipped  app rules deployment until the API/Monaco is updated to resolve this issue
+# https://github.com/dynatrace-oss/dynatrace-monitoring-as-code/issues/106
+
+hipster_rule_1:
+  - skipDeployment: "true"
+  - name: "projects/hipster-shop/application/hipster_web_application.name"
+  - app_identifier: "projects/hipster-shop/application/hipster_web_application.id"
+  - enabled: "true"
+  - pattern: "frontend"
+  - match_operator: "BEGINS_WITH"
+  - match_target: "DOMAIN"
+
+hipster_rule_2:
+  - skipDeployment: "true"
+  - name: "projects/hipster-shop/application/hipster_web_application.name"
+  - app_identifier: "projects/hipster-shop/application/hipster_web_application.id"
+  - enabled: "true"
+  - pattern: "8.8.8.8"
+  - match_operator: "MATCHES"
+  - match_target: "DOMAIN"
+
+hipster_rule_3:
+  - skipDeployment: "true"
+  - name: "projects/hipster-shop/application/hipster_web_application.name"
+  - app_identifier: "projects/hipster-shop/application/hipster_web_application.id"
+  - enabled: "true"
+  - pattern: "/cart"
+  - match_operator: "CONTAINS"
+  - match_target: "URL"
+
+hipster_rule_4:
+  - skipDeployment: "true"
+  - name: "projects/hipster-shop/application/hipster_web_application.name"
+  - app_identifier: "projects/hipster-shop/application/hipster_web_application.id"
+  - enabled: "true"
+  - pattern: "/product"
+  - match_operator: "CONTAINS"
+  - match_target: "URL"
+
+hipster_rule_5:
+  - skipDeployment: "true"
+  - name: "projects/hipster-shop/application/hipster_web_application.name"
+  - app_identifier: "projects/hipster-shop/application/hipster_web_application.id"
+  - enabled: "true"
+  - pattern: "/static"
+  - match_operator: "CONTAINS"
+  - match_target: "URL"
+
+hipster_rule_6:
+  - skipDeployment: "true"
+  - name: "projects/hipster-shop/application/hipster_web_application.name"
+  - app_identifier: "projects/hipster-shop/application/hipster_web_application.id"
+  - enabled: "true"
+  - pattern: "/set"
+  - match_operator: "CONTAINS"
+  - match_target: "URL"

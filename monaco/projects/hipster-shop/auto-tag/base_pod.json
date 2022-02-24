@@ -1,0 +1,29 @@
+{
+  "name": "{{ .name }}",
+  "rules": [
+    {
+      "type": "PROCESS_GROUP",
+      "enabled": {{ .enabled }},
+      "valueFormat": "{ProcessGroup:KubernetesBasePodName}",
+      "propagationTypes": [
+        "PROCESS_GROUP_TO_SERVICE"
+      ],
+      "conditions": [
+        {
+          "key": {
+            "attribute": "PROCESS_GROUP_PREDEFINED_METADATA",
+            "dynamicKey": "KUBERNETES_BASE_POD_NAME",
+            "type": "PROCESS_PREDEFINED_METADATA_KEY"
+          },
+          "comparisonInfo": {
+            "type": "STRING",
+            "operator": "{{ .match_operator }}",
+            "value": null,
+            "negate": false,
+            "caseSensitive": null
+          }
+        }
+      ]
+    }
+  ]
+}

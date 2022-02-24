@@ -1,0 +1,8 @@
+{
+  "applicationIdentifier": "{{ .app_identifier }}",
+  "filterConfig": {
+    "pattern": "{{ .pattern }}",
+    "applicationMatchType": "{{ .match_operator }}",
+    "applicationMatchTarget": "{{ .match_target }}"
+  }
+}

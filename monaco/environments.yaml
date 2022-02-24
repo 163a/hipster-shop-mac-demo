@@ -1,0 +1,4 @@
+sandbox:
+  - name: "sandbox"
+  - env-url: "{{ .Env.URL_SANDBOX_ENVIRONMENT }}"
+  - env-token-name: "TOKEN_SANDBOX"

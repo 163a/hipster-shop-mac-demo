@@ -1,0 +1,152 @@
+{
+  "name": "{{ .name }}",
+  "type": "AUTO_INJECTED",
+  "realUserMonitoringEnabled": {{ .enabled }},
+  "costControlUserSessionPercentage": 100,
+  "loadActionKeyPerformanceMetric": "VISUALLY_COMPLETE",
+  "xhrActionKeyPerformanceMetric": "VISUALLY_COMPLETE",
+  "loadActionApdexSettings": {
+    "toleratedThreshold": 4000,
+    "frustratingThreshold": 12000,
+    "toleratedFallbackThreshold": 4000,
+    "frustratingFallbackThreshold": 12000
+  },
+  "xhrActionApdexSettings": {
+    "toleratedThreshold": 4000,
+    "frustratingThreshold": 12000,
+    "toleratedFallbackThreshold": 4000,
+    "frustratingFallbackThreshold": 12000
+  },
+  "customActionApdexSettings": {
+    "toleratedThreshold": 3000,
+    "frustratingThreshold": 12000,
+    "toleratedFallbackThreshold": 3000,
+    "frustratingFallbackThreshold": 12000
+  },
+  "waterfallSettings": {
+    "uncompressedResourcesThreshold": 860,
+    "resourcesThreshold": 100000,
+    "resourceBrowserCachingThreshold": 50,
+    "slowFirstPartyResourcesThreshold": 200000,
+    "slowThirdPartyResourcesThreshold": 200000,
+    "slowCdnResourcesThreshold": 200000,
+    "speedIndexVisuallyCompleteRatioThreshold": 50
+  },
+  "monitoringSettings": {
+    "fetchRequests": false,
+    "xmlHttpRequest": {{ .xhr_support }},
+    "javaScriptFrameworkSupport": {
+      "angular": false,
+      "dojo": false,
+      "extJS": false,
+      "icefaces": false,
+      "jQuery": false,
+      "mooTools": false,
+      "prototype": false,
+      "activeXObject": false
+    },
+    "contentCapture": {
+      "resourceTimingSettings": {
+        "w3cResourceTimings": true,
+        "nonW3cResourceTimings": false,
+        "nonW3cResourceTimingsInstrumentationDelay": 50,
+        "resourceTimingCaptureType": "CAPTURE_FULL_DETAILS",
+        "resourceTimingsDomainLimit": 10
+      },
+      "javaScriptErrors": true,
+      "timeoutSettings": {
+        "timedActionSupport": false,
+        "temporaryActionLimit": 0,
+        "temporaryActionTotalTimeout": 100
+      },
+      "visuallyCompleteAndSpeedIndex": true,
+      "visuallyComplete2Settings": {
+        "imageUrlBlacklist": "",
+        "mutationBlacklist": "",
+        "mutationTimeout": 50,
+        "inactivityTimeout": 1000,
+        "threshold": 50
+      }
+    },
+    "excludeXhrRegex": "",
+    "correlationHeaderInclusionRegex": "",
+    "injectionMode": "JAVASCRIPT_TAG",
+    "addCrossOriginAnonymousAttribute": true,
+    "scriptTagCacheDurationInHours": 1,
+    "libraryFileLocation": "",
+    "monitoringDataPath": "",
+    "customConfigurationProperties": "",
+    "serverRequestPathId": "",
+    "secureCookieAttribute": false,
+    "cookiePlacementDomain": "",
+    "cacheControlHeaderOptimizations": true,
+    "advancedJavaScriptTagSettings": {
+      "syncBeaconFirefox": false,
+      "syncBeaconInternetExplorer": false,
+      "instrumentUnsupportedAjaxFrameworks": false,
+      "specialCharactersToEscape": "",
+      "maxActionNameLength": 100,
+      "maxErrorsToCapture": 10,
+      "additionalEventHandlers": {
+        "userMouseupEventForClicks": false,
+        "clickEventHandler": false,
+        "mouseupEventHandler": false,
+        "blurEventHandler": false,
+        "changeEventHandler": false,
+        "toStringMethod": false,
+        "maxDomNodesToInstrument": 5000
+      },
+      "eventWrapperSettings": {
+        "click": false,
+        "mouseUp": false,
+        "change": false,
+        "blur": false,
+        "touchStart": false,
+        "touchEnd": false
+      },
+      "globalEventCaptureSettings": {
+        "mouseUp": true,
+        "mouseDown": true,
+        "click": true,
+        "doubleClick": true,
+        "keyUp": true,
+        "keyDown": true,
+        "scroll": true,
+        "additionalEventCapturedAsUserInput": ""
+      }
+    }
+  },
+  "userActionNamingSettings": {
+    "placeholders": [],
+    "loadActionNamingRules": [
+      {
+        "template": "{userInteraction (default)} on {elementIdentifier (default)} on page {pageUrlPath (default)}",
+        "conditions": [
+          {
+            "operand1": "{userInteraction (default)}",
+            "operand2": null,
+            "operator": "IS_NOT_EMPTY"
+          }
+        ]
+      }
+    ],
+    "xhrActionNamingRules": [
+      {
+        "template": "{userInteraction (default)} on {elementIdentifier (default)} on page {pageUrlPath (default)} triggered {xhrUrl (default)}",
+        "conditions": [
+          {
+            "operand1": "{xhrUrl (default)}",
+            "operand2": null,
+            "operator": "IS_NOT_EMPTY"
+          }
+        ]
+      }
+    ],
+    "customActionNamingRules": [],
+    "ignoreCase": true,
+    "useFirstDetectedLoadAction": false,
+    "splitUserActionsByDomain": false
+  },
+  "metaDataCaptureSettings": [],
+  "conversionGoals": []
+}

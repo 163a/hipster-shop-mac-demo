@@ -1,0 +1,75 @@
+{
+  "name": "{{ .name }}",
+  "rules": [
+    {
+      "type": "HOST",
+      "enabled": {{ .enabled }},
+      "valueFormat": null,
+      "propagationTypes": [],
+      "conditions": [
+        {
+          "key": {
+            "attribute": "HOST_CUSTOM_METADATA",
+            "dynamicKey": {
+              "source": "ENVIRONMENT",
+              "key": "OperatorVersion"
+            },
+            "type": "HOST_CUSTOM_METADATA_KEY"
+          },
+          "comparisonInfo": {
+            "type": "STRING",
+            "operator": "{{ .match_operator }}",
+            "value": null,
+            "negate": false,
+            "caseSensitive": null
+          }
+        }
+      ]
+    },
+    {
+      "type": "PROCESS_GROUP",
+      "enabled": {{ .enabled }},
+      "valueFormat": null,
+      "propagationTypes": [
+        "PROCESS_GROUP_TO_HOST",
+        "PROCESS_GROUP_TO_SERVICE"
+      ],
+      "conditions": [
+        {
+          "key": {
+            "attribute": "PROCESS_GROUP_PREDEFINED_METADATA",
+            "dynamicKey": "KUBERNETES_NAMESPACE",
+            "type": "PROCESS_PREDEFINED_METADATA_KEY"
+          },
+          "comparisonInfo": {
+            "type": "STRING",
+            "operator": "{{ .match_operator }}",
+            "value": null,
+            "negate": false,
+            "caseSensitive": null
+          }
+        }
+      ]
+    },
+    {
+      "type": "HOST",
+      "enabled": {{ .enabled }},
+      "valueFormat": null,
+      "propagationTypes": [],
+      "conditions": [
+        {
+          "key": {
+            "attribute": "KUBERNETES_NODE_NAME"
+          },
+          "comparisonInfo": {
+            "type": "STRING",
+            "operator": "{{ .match_operator }}",
+            "value": null,
+            "negate": false,
+            "caseSensitive": null
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+config:
+  - hipster_shop_alerting: "hipster_shop_alerting.json"
+
+hipster_shop_alerting:
+  - name: "Hipster Shop Alerting"
+  - management_zone_id: "projects/hipster-shop/management-zone/hipster_shop_zone.id"

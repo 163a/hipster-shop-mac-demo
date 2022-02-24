@@ -1,0 +1,33 @@
+{
+  "type": "{{ .type }}",
+  "nameFormat": "{{ .ruleFormat }}",
+  "displayName": "{{ .name }}",
+  "enabled": {{ .enabled }},
+  "rules": [
+    {
+      "key": {
+        "attribute": "HOST_TECHNOLOGY"
+      },
+      "comparisonInfo": {
+        "type": "SIMPLE_HOST_TECH",
+        "operator": "EQUALS",
+        "value": {
+          "type": "KUBERNETES"
+        },
+        "negate": false
+      }
+    },
+    {
+      "key": {
+        "attribute": "HOST_DETECTED_NAME"
+      },
+      "comparisonInfo": {
+        "type": "STRING",
+        "operator": "BEGINS_WITH",
+        "value": "{{ .hostnamePrefix }}",
+        "negate": false,
+        "caseSensitive": true
+      }
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+config:
+  - hipster_web_application: "hipster_web_application.json"
+  
+hipster_web_application:
+  - name: "Hipster Shop Frontend"
+  - enabled: "true"
+  - xhr_support: "true"

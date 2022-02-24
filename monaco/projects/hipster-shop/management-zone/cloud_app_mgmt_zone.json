@@ -1,0 +1,44 @@
+{
+  "name": "{{ .name }}",
+  "rules": [
+    {
+      "type": "CLOUD_APPLICATION_NAMESPACE",
+      "enabled": {{ .enabled }},
+      "propagationTypes": [],
+      "conditions": [
+        {
+          "key": {
+            "attribute": "CLOUD_APPLICATION_NAMESPACE_NAME"
+          },
+          "comparisonInfo": {
+            "type": "STRING",
+            "operator": "{{ .namespace_match_operator }}",
+            "value": "dynatrace",
+            "negate": false,
+            "caseSensitive": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "CLOUD_APPLICATION",
+      "enabled": {{ .enabled }},
+      "propagationTypes": [],
+      "conditions": [
+        {
+          "key": {
+            "attribute": "CLOUD_APPLICATION_NAMESPACE_NAME"
+          },
+          "comparisonInfo": {
+            "type": "STRING",
+            "operator": "{{ .namespace_match_operator }}",
+            "value": "dynatrace",
+            "negate": false,
+            "caseSensitive": true
+          }
+        }
+      ]
+    }
+  ],
+  "dimensionalRules": []
+}

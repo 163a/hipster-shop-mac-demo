@@ -1,0 +1,42 @@
+config:
+  - dynatrace_operator_zone: "cloud_app_mgmt_zone.json"
+  - hipster_shop_zone: "common_mgmt_zone.json"
+  - kubernetes_zone: "common_mgmt_zone.json"
+
+dynatrace_operator_zone:
+  - name: "Dynatrace Operator"
+  - enabled: "true"
+  - namespace_filter: "dynatrace"
+  - namespace_match_operator: "EQUALS"
+
+kubernetes_zone:
+  - name: "Kubernetes"
+  - tagging_filter: "Kubernetes"
+  - enable_service_rule: "true"
+  - enable_process_group_rule: "true"
+  - enable_host_rule: "true"
+  - enable_webapp_rule: "true"
+  - enable_browsermon_rule: "true"
+  - enable_customdevice_rule: "true"
+  - enable_customdevice_group_rule: "true"
+  - enable_kubernetescluster_rule: "true"
+  - enable_workload_rule: "true"
+  - enable_workload_namespace_rule: "true"
+  - namespace_filter: "kube-"
+  - namespace_match_operator: "BEGINS_WITH"
+
+hipster_shop_zone:
+  - name: "Hipster Shop"
+  - tagging_filter: "Hipster Shop"
+  - enable_service_rule: "true"
+  - enable_process_group_rule: "true"
+  - enable_host_rule: "true"
+  - enable_webapp_rule: "true"
+  - enable_browsermon_rule: "true"
+  - enable_customdevice_rule: "true"
+  - enable_customdevice_group_rule: "true"
+  - enable_kubernetescluster_rule: "false"
+  - enable_workload_rule: "true"
+  - enable_workload_namespace_rule: "true"
+  - namespace_filter: "default"
+  - namespace_match_operator: "EQUALS"

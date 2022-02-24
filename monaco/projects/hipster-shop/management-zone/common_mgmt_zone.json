@@ -1,0 +1,210 @@
+{
+  "name": "{{ .name }}",
+  "rules": [
+    {
+      "type": "SERVICE",
+      "enabled": {{ .enable_service_rule }},
+      "propagationTypes": [],
+      "conditions": [
+        {
+          "key": {
+            "attribute": "SERVICE_TAGS"
+          },
+          "comparisonInfo": {
+            "type": "TAG",
+            "operator": "TAG_KEY_EQUALS",
+            "value": {
+              "context": "CONTEXTLESS",
+              "key": "{{ .tagging_filter }}"
+            },
+            "negate": false
+          }
+        }
+      ]
+    },
+    {
+      "type": "PROCESS_GROUP",
+      "enabled": {{ .enable_process_group_rule }},
+      "propagationTypes": [],
+      "conditions": [
+        {
+          "key": {
+            "attribute": "PROCESS_GROUP_TAGS"
+          },
+          "comparisonInfo": {
+            "type": "TAG",
+            "operator": "TAG_KEY_EQUALS",
+            "value": {
+              "context": "CONTEXTLESS",
+              "key": "{{ .tagging_filter }}"
+            },
+            "negate": false
+          }
+        }
+      ]
+    },
+    {
+      "type": "HOST",
+      "enabled": {{ .enable_host_rule }},
+      "propagationTypes": [],
+      "conditions": [
+        {
+          "key": {
+            "attribute": "HOST_TAGS"
+          },
+          "comparisonInfo": {
+            "type": "TAG",
+            "operator": "TAG_KEY_EQUALS",
+            "value": {
+              "context": "CONTEXTLESS",
+              "key": "{{ .tagging_filter }}"
+            },
+            "negate": false
+          }
+        }
+      ]
+    },
+    {
+      "type": "CUSTOM_DEVICE",
+      "enabled": {{ .enable_customdevice_rule }},
+      "propagationTypes": [],
+      "conditions": [
+        {
+          "key": {
+            "attribute": "CUSTOM_DEVICE_TAGS"
+          },
+          "comparisonInfo": {
+            "type": "TAG",
+            "operator": "TAG_KEY_EQUALS",
+            "value": {
+              "context": "CONTEXTLESS",
+              "key": "{{ .tagging_filter }}"
+            },
+            "negate": false
+          }
+        }
+      ]
+    },
+    {
+      "type": "CUSTOM_DEVICE_GROUP",
+      "enabled": {{ .enable_customdevice_group_rule }},
+      "propagationTypes": [],
+      "conditions": [
+        {
+          "key": {
+            "attribute": "CUSTOM_DEVICE_GROUP_TAGS"
+          },
+          "comparisonInfo": {
+            "type": "TAG",
+            "operator": "TAG_KEY_EQUALS",
+            "value": {
+              "context": "CONTEXTLESS",
+              "key": "{{ .tagging_filter }}"
+            },
+            "negate": false
+          }
+        }
+      ]
+    },
+    {
+      "type": "WEB_APPLICATION",
+      "enabled": {{ .enable_webapp_rule }},
+      "propagationTypes": [],
+      "conditions": [
+        {
+          "key": {
+            "attribute": "WEB_APPLICATION_TAGS"
+          },
+          "comparisonInfo": {
+            "type": "TAG",
+            "operator": "TAG_KEY_EQUALS",
+            "value": {
+              "context": "CONTEXTLESS",
+              "key": "{{ .tagging_filter }}"
+            },
+            "negate": false
+          }
+        }
+      ]
+    },
+    {
+      "type": "BROWSER_MONITOR",
+      "enabled": {{ .enable_browsermon_rule }},
+      "propagationTypes": [],
+      "conditions": [
+        {
+          "key": {
+            "attribute": "BROWSER_MONITOR_TAGS"
+          },
+          "comparisonInfo": {
+            "type": "TAG",
+            "operator": "TAG_KEY_EQUALS",
+            "value": {
+              "context": "CONTEXTLESS",
+              "key": "{{ .tagging_filter }}"
+            },
+            "negate": false
+          }
+        }
+      ]
+    },
+    {
+      "type": "KUBERNETES_CLUSTER",
+      "enabled": {{ .enable_kubernetescluster_rule }},
+      "propagationTypes": [],
+      "conditions": [
+        {
+          "key": {
+            "attribute": "KUBERNETES_CLUSTER_NAME"
+          },
+          "comparisonInfo": {
+            "type": "STRING",
+            "operator": "EXISTS",
+            "value": null,
+            "negate": false,
+            "caseSensitive": null
+          }
+        }
+      ]
+    },
+    {
+      "type": "CLOUD_APPLICATION",
+      "enabled": {{ .enable_workload_rule }},
+      "propagationTypes": [],
+      "conditions": [
+        {
+          "key": {
+            "attribute": "CLOUD_APPLICATION_NAMESPACE_NAME"
+          },
+          "comparisonInfo": {
+            "type": "STRING",
+            "operator": "{{ .namespace_match_operator }}",
+            "value": "{{ .namespace_filter }}",
+            "negate": false,
+            "caseSensitive": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "CLOUD_APPLICATION_NAMESPACE",
+      "enabled": {{ .enable_workload_namespace_rule }},
+      "propagationTypes": [],
+      "conditions": [
+        {
+          "key": {
+            "attribute": "CLOUD_APPLICATION_NAMESPACE_NAME"
+          },
+          "comparisonInfo": {
+            "type": "STRING",
+            "operator": "{{ .namespace_match_operator }}",
+            "value": "{{ .namespace_filter }}",
+            "negate": false,
+            "caseSensitive": true
+          }
+        }
+      ]
+    }
+  ],
+  "dimensionalRules": []
+}
